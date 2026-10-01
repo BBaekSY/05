@@ -1,19 +1,20 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 int main(void)
 {
-    int c;
-    int num = 0;
+    int number;
+    int i;
+    int sum = 0;
 
-    printf("Enter a string: ");
+    printf("Enter a positive integer: ");
+    scanf("%d", &number);
 
-    while ((c = getchar()) != '\n' && c != EOF) {
-        if (c >= '0' && c <= '9') {
-            num++;
-        }
+    for (i = 1; i <= number; i++) {
+        sum += i;
     }
 
-    printf("Number of digits: %d\n", num);
+    printf("Sum: %d\n", sum);
 
     return 0;
 }
