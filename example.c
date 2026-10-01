@@ -1,18 +1,19 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 int main(void)
 {
-    int number;
+    int c;
+    int num = 0;
 
-    printf("Enter an integer: ");
-    scanf("%d", &number);
+    printf("Enter a string: ");
 
-    if (number < 0) {
-        number = -number;
+    while ((c = getchar()) != '\n' && c != EOF) {
+        if (c >= '0' && c <= '9') {
+            num++;
+        }
     }
 
-    printf("Absolute value: %d\n", number);
+    printf("Number of digits: %d\n", num);
 
     return 0;
 }
