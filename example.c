@@ -3,38 +3,26 @@
 
 int main(void)
 {
-    int first, second;
-    char op;
+    int answer = 59;
+    int guess;
+    int count = 0;
 
-    printf("Enter an expression (e.g. 2 + 5): ");
-    scanf("%d %c %d", &first, &op, &second);
+    do {
+        printf("Enter your guess: ");
+        scanf("%d", &guess);
 
-    switch (op) {
-    case '+':
-        printf("%d+%d=%d\n", first, second, first + second);
-        break;
+        count++;
 
-    case '-':
-        printf("%d-%d=%d\n", first, second, first - second);
-        break;
-
-    case '*':
-        printf("%d*%d=%d\n", first, second, first * second);
-        break;
-
-    case '/':
-        if (second == 0) {
-            printf("Cannot divide by zero.\n");
+        if (guess > answer) {
+            printf("Too high!\n");
         }
-        else {
-            printf("%d/%d=%d\n", first, second, first / second);
+        else if (guess < answer) {
+            printf("Too low!\n");
         }
-        break;
 
-    default:
-        printf("Invalid operator.\n");
-        break;
-    }
+    } while (guess != answer);
+
+    printf("Correct! Attempts: %d\n", count);
 
     return 0;
 }
