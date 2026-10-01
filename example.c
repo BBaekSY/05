@@ -3,18 +3,38 @@
 
 int main(void)
 {
-    int number;
-    int i;
-    int sum = 0;
+    int first, second;
+    char op;
 
-    printf("Enter a positive integer: ");
-    scanf("%d", &number);
+    printf("Enter an expression (e.g. 2 + 5): ");
+    scanf("%d %c %d", &first, &op, &second);
 
-    for (i = 1; i <= number; i++) {
-        sum += i;
+    switch (op) {
+    case '+':
+        printf("%d+%d=%d\n", first, second, first + second);
+        break;
+
+    case '-':
+        printf("%d-%d=%d\n", first, second, first - second);
+        break;
+
+    case '*':
+        printf("%d*%d=%d\n", first, second, first * second);
+        break;
+
+    case '/':
+        if (second == 0) {
+            printf("Cannot divide by zero.\n");
+        }
+        else {
+            printf("%d/%d=%d\n", first, second, first / second);
+        }
+        break;
+
+    default:
+        printf("Invalid operator.\n");
+        break;
     }
-
-    printf("Sum: %d\n", sum);
 
     return 0;
 }
